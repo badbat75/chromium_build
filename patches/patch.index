@@ -1,0 +1,8 @@
+### Patch list ###
+# patch_name,lowest_version,highest_version
+09-optimization.patch,96,
+10-pkg-config.patch,96,
+#11-disable_remoting.patch,96,
+#20-harfbuzz_subset.patch,96,
+21-strerror_r.patch,96,
+22-shim.patch,96,

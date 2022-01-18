@@ -1,0 +1,9 @@
+--- a/net/third_party/quiche/src/epoll_server/simple_epoll_server.cc      2022-01-14 10:59:15.507383044 +0100
++++ b/net/third_party/quiche/src/epoll_server/simple_epoll_server.cc      2022-01-14 10:59:26.147383011 +0100
+@@ -5,6 +5,7 @@
+ #include "epoll_server/simple_epoll_server.h"
+
+ #include <errno.h>   // for errno and strerror_r
++#include <string.h>   // for errno and strerror_r
+ #include <stdlib.h>  // for abort
+ #include <unistd.h>  // For read, pipe, close and write.

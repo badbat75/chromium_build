@@ -1,0 +1,11 @@
+--- a/remoting/host/BUILD.gn  2022-01-07 01:41:25.000000000 +0100
++++ b/remoting/host/BUILD.gn      2022-01-12 12:02:13.167909893 +0100
+@@ -25,7 +25,7 @@
+     deps += [ ":remoting_host_branded" ]
+   }
+
+-  if (!is_chromeos_ash && !is_chromeos_lacros && !is_android && !is_ios) {
++  if (false) {
+     deps += [
+       "//remoting/host:remoting_native_messaging_host",
+       "//remoting/host:remoting_native_messaging_manifests",

@@ -1,0 +1,27 @@
+--- a/build/config/linux/pkg-config.py        2022-01-07 01:41:05.000000000 +0100
++++ b/build/config/linux/pkg-config.py    2022-01-12 10:42:19.527924835 +0100
+@@ -59,8 +59,11 @@
+     print("You must specify an architecture via -a if using a sysroot.")
+     sys.exit(1)
+
+-  libdir = sysroot + '/usr/' + options.system_libdir + '/pkgconfig'
+-  libdir += ':' + sysroot + '/usr/share/pkgconfig'
++  if "PKG_CONFIG_LIBDIR" in os.environ:
++    libdir = os.environ['PKG_CONFIG_LIBDIR']
++  else:
++    libdir = sysroot + '/usr/' + options.system_libdir + '/pkgconfig'
++    libdir += ':' + sysroot + '/usr/share/pkgconfig'
+   os.environ['PKG_CONFIG_LIBDIR'] = libdir
+   return libdir
+
+--- a/build/config/linux/pkg_config.gni    2022-01-12 14:58:38.347876898 +0100
++++ b/build/config/linux/pkg_config.gni   2022-01-12 14:59:10.237876799 +0100
+@@ -104,7 +104,7 @@
+     cflags = pkgresult[1]
+
+     foreach(include, pkgresult[0]) {
+-      if (use_sysroot) {
++      if (false) {
+         # We want the system include paths to use -isystem instead of -I to
+         # suppress warnings in those headers.
+         include_relativized = rebase_path(include, root_build_dir)
